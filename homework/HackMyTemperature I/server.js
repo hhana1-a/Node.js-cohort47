@@ -23,7 +23,7 @@ app.post('/weather', (req, res) => {
  // const { cityName } = req.body;
 
   const cityName = req.body.cityName;
-  res.setHeader("Content-Type", "text/css");
+  res.setHeader("Content-Type", "text/html");
   res.send(`City you entered is: ${cityName}.`)
 })
 
