@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
   res.send('Hello World')
 })
 
-app.post('/blogs', (req, res) => {
+app.post('/posts', (req, res) => {
 
   const {title, content} = req.body;
   fs.writeFileSync(title, content);
@@ -29,7 +29,7 @@ app.put('/posts/:title', (req, res) => {
     return res.status(404).send('This post does not exist!');
 }
 })
-app.delete('/blogs/:title', (req, res) => {
+app.delete('/posts/:title', (req, res) => {
   const { title } = req.params;
   if (fs.existsSync(title)) {
     fs.unlinkSync(title);
@@ -39,7 +39,7 @@ app.delete('/blogs/:title', (req, res) => {
   }
 });
 
-app.get('/blogs/:title', (req, res) => {
+app.get('/posts/:title', (req, res) => {
   const { title } = req.params;
 
   if (fs.existsSync(`${title}.json`)) {
